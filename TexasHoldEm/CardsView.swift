@@ -11,37 +11,29 @@ struct ContentView: View {
     @State var hands: [Hand] = [
         Hand(cards: [
             Card(value: "3", suit: .hearts),
-            Card(value: "2", suit: .hearts),
-            Card(value: "4", suit: .hearts),
+            Card(value: "3", suit: .clubs),
+            Card(value: "6", suit: .hearts),
             Card(value: "5", suit: .hearts),
             Card(value: "6", suit: .hearts)
         ])!,
         Hand(cards: [
-            Card(value: "3", suit: .diamonds),
-            Card(value: "7", suit: .diamonds),
             Card(value: "4", suit: .diamonds),
-            Card(value: "5", suit: .diamonds),
+            Card(value: "7", suit: .diamonds),
+            Card(value: "4", suit: .clubs),
+            Card(value: "7", suit: .hearts),
             Card(value: "6", suit: .diamonds)
         ])!,
     ]
     @State var determineDisabled: Bool = false
     @State var counter: Int = 0
     @State var numberOfHands: Int = 0
-    let handOptions = [1, 2, 3, 4, 5]
+    let handOptions = [1, 2, 3, 4, 5, 6]
     @State private var winnerIndex: Int? = nil
     @State private var winnerHandType: HandType? = nil
     static var tempHand: Hand = Hand(cards: [Card(value: "2", suit: .diamonds)])!
     
     var body: some View {
-        VStack(spacing: 10) {
-            Picker("Number of Hands", selection: $numberOfHands) {
-                ForEach(handOptions, id: \.self) { hand in
-                    Text("\(hand)").tag(hand)
-                }
-            }
-            .pickerStyle(.segmented)
-            .padding()
-            
+        VStack(spacing: 0) {
             Button {
                 hands.removeAll()
             } label: {
@@ -51,6 +43,16 @@ struct ContentView: View {
             .buttonStyle(.bordered)
             .controlSize(.large)
             .padding()
+            
+            Picker("Number of Hands", selection: $numberOfHands) {
+                ForEach(handOptions, id: \.self) { hand in
+                    Text("\(hand)").tag(hand)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding()
+            
+            
             
             Button {
                 if hands.count > 0 {
@@ -73,8 +75,14 @@ struct ContentView: View {
                     determineDisabled = false
                 }
             } label: {
-                Text("Generate hands")
-                    .frame(maxWidth: .infinity)
+                HStack {
+                    Text("Generate hands")
+                        .frame(maxWidth: .infinity)
+                    if determineDisabled {
+                        DotLoadingView()
+                            .frame(height: 15)
+                    }
+                }
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
