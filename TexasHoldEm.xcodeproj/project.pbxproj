@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		7E5C66002A7CA4DB006D9103 /* TexasHoldEmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5C65FF2A7CA4DB006D9103 /* TexasHoldEmApp.swift */; };
-		7E5C66022A7CA4DB006D9103 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5C66012A7CA4DB006D9103 /* ContentView.swift */; };
+		7E5C66022A7CA4DB006D9103 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5C66012A7CA4DB006D9103 /* CardsView.swift */; };
 		7E5C66042A7CA4DC006D9103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5C66032A7CA4DC006D9103 /* Assets.xcassets */; };
 		7E5C66072A7CA4DC006D9103 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5C66062A7CA4DC006D9103 /* Preview Assets.xcassets */; };
+		7E5C660E2A7CA4F8006D9103 /* Card Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5C660D2A7CA4F8006D9103 /* Card Logic.swift */; };
+		7E5C66102A7CA667006D9103 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5C660F2A7CA667006D9103 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E5C65FC2A7CA4DB006D9103 /* TexasHoldEm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TexasHoldEm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5C65FF2A7CA4DB006D9103 /* TexasHoldEmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TexasHoldEmApp.swift; sourceTree = "<group>"; };
-		7E5C66012A7CA4DB006D9103 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7E5C66012A7CA4DB006D9103 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		7E5C66032A7CA4DC006D9103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E5C66062A7CA4DC006D9103 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7E5C660D2A7CA4F8006D9103 /* Card Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card Logic.swift"; sourceTree = "<group>"; };
+		7E5C660F2A7CA667006D9103 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				7E5C65FF2A7CA4DB006D9103 /* TexasHoldEmApp.swift */,
-				7E5C66012A7CA4DB006D9103 /* ContentView.swift */,
+				7E5C660F2A7CA667006D9103 /* Network.swift */,
+				7E5C66012A7CA4DB006D9103 /* CardsView.swift */,
+				7E5C660D2A7CA4F8006D9103 /* Card Logic.swift */,
 				7E5C66032A7CA4DC006D9103 /* Assets.xcassets */,
 				7E5C66052A7CA4DC006D9103 /* Preview Content */,
 			);
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E5C66022A7CA4DB006D9103 /* ContentView.swift in Sources */,
+				7E5C66022A7CA4DB006D9103 /* CardsView.swift in Sources */,
 				7E5C66002A7CA4DB006D9103 /* TexasHoldEmApp.swift in Sources */,
+				7E5C66102A7CA667006D9103 /* Network.swift in Sources */,
+				7E5C660E2A7CA4F8006D9103 /* Card Logic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
