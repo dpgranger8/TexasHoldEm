@@ -10,18 +10,18 @@ import SwiftUI
 struct ContentView: View {
     @State var hands: [Hand] = [
         Hand(cards: [
-            Card(value: "3", suit: .hearts),
-            Card(value: "3", suit: .clubs),
-            Card(value: "6", suit: .hearts),
+            Card(value: "2", suit: .hearts),
+            Card(value: "8", suit: .clubs),
+            Card(value: "8", suit: .hearts),
             Card(value: "5", suit: .hearts),
-            Card(value: "6", suit: .hearts)
+            Card(value: "A", suit: .hearts)
         ])!,
         Hand(cards: [
-            Card(value: "4", suit: .diamonds),
-            Card(value: "7", suit: .diamonds),
+            Card(value: "A", suit: .clubs),
+            Card(value: "6", suit: .diamonds),
             Card(value: "4", suit: .clubs),
             Card(value: "7", suit: .hearts),
-            Card(value: "6", suit: .diamonds)
+            Card(value: "A", suit: .diamonds)
         ])!,
     ]
     @State var determineDisabled: Bool = false
@@ -31,6 +31,7 @@ struct ContentView: View {
     @State private var winnerIndex: Int? = nil
     @State private var winnerHandType: HandType? = nil
     static var tempHand: Hand = Hand(cards: [Card(value: "2", suit: .diamonds)])!
+    @State var disableWinnerText: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -58,6 +59,7 @@ struct ContentView: View {
                 if hands.count > 0 {
                     hands.removeAll()
                 }
+                disableWinnerText = true
                 Task {
                     determineDisabled = true
                     do {
@@ -89,9 +91,12 @@ struct ContentView: View {
             .padding()
             VStack {
                 Button {
-                    let winningHand = determineWinner(hands: hands)
-                    winnerIndex = hands.firstIndex(where: { $0 == winningHand })
-                    winnerHandType = determineHandType(hand: winningHand)
+                    if !hands.isEmpty {
+                        let winningHand = determineWinner(hands: hands)
+                        winnerIndex = hands.firstIndex(where: { $0 == winningHand })
+                        winnerHandType = determineHandType(hand: winningHand)
+                    }
+                    disableWinnerText = false
                 } label: {
                     Text("Check for the winner")
                         .frame(maxWidth: .infinity)
@@ -105,6 +110,7 @@ struct ContentView: View {
                         .padding()
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(10)
+                        .opacity(disableWinnerText ? 0 : 1)
                 }
             }
         }
